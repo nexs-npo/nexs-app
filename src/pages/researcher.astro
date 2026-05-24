@@ -1,0 +1,214 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ResearcherRegisterModal from '@/components/ResearcherRegisterModal';
+---
+
+<BaseLayout
+  title="リサーチャー候補 事前登録 | nexs"
+  description="AIを使ってみたいけれど、何をしたらいいか分からない。そんなあなたと共に試行錯誤する場所を作っています。リサーチャー候補の事前登録受付中。"
+>
+  <!-- モーダル（React island） -->
+  <ResearcherRegisterModal client:only="react" />
+
+  <main class="min-h-screen">
+
+    <!-- ===== 1. ヒーローセクション ===== -->
+    <section class="px-5 pt-14 pb-12 max-w-lg mx-auto text-center">
+      <!-- ラベル群 -->
+      <div class="flex flex-wrap justify-center gap-2 mb-6">
+        <span class="inline-flex items-center gap-1 px-3 py-1 bg-black text-white text-xs font-mono rounded-full">
+          リサーチャー候補
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 bg-gray-900 text-white text-xs font-mono rounded-full">
+          事前登録受付中
+        </span>
+        <span class="inline-flex items-center gap-1 px-3 py-1 border border-gray-300 text-gray-600 text-xs font-mono rounded-full">
+          NPO法人化準備中
+        </span>
+      </div>
+
+      <!-- メインコピー -->
+      <h1 class="text-3xl font-black text-gray-900 leading-tight tracking-tight mb-4">
+        AIを使わなきゃ。<br>
+        でも、何をしたら<br>いいか分からない。
+      </h1>
+
+      <!-- サブコピー -->
+      <p class="text-sm text-gray-600 leading-relaxed mb-8">
+        そんなあなたと、共に試行錯誤できる場所を作っています。<br>
+        私たちと一緒にはじめませんか？
+      </p>
+
+      <!-- CTA前ラベル -->
+      <div class="flex justify-center gap-3 mb-4 text-xs text-gray-500">
+        <span class="flex items-center gap-1"><span class="text-green-500">✓</span> カンタン</span>
+        <span class="flex items-center gap-1"><span class="text-green-500">✓</span> 無料</span>
+        <span class="flex items-center gap-1"><span class="text-gray-400">※</span> 正式申込ではありません</span>
+      </div>
+
+      <!-- CTA ボタン -->
+      <button
+        type="button"
+        class="open-modal w-full max-w-xs mx-auto bg-black text-white py-4 rounded-2xl font-bold text-base hover:bg-gray-800 active:scale-[0.97] transition-all shadow-lg"
+      >
+        事前登録をする →
+      </button>
+    </section>
+
+    <!-- 区切り線 -->
+    <div class="max-w-lg mx-auto px-5">
+      <div class="border-t border-gray-100"></div>
+    </div>
+
+    <!-- ===== 2. 対象者セクション ===== -->
+    <section class="px-5 py-12 max-w-lg mx-auto">
+      <p class="text-xs font-mono text-gray-400 mb-2">WHO WE WELCOME</p>
+      <h2 class="text-xl font-black text-gray-900 mb-6">こんな人を歓迎します。</h2>
+      <ul class="space-y-4">
+        {[
+          'AIを使わなきゃと思っているけれど、まだ具体的な使い道が見えていない',
+          'ChatGPTやClaudeを触ってはいるけれど、遊びや単発利用で終わっている',
+          '自分の仕事・関心・問題意識に、AIをどう接続すればいいか考えたい',
+          'ツール代の負担が大きく、試したいことがあっても試しきれていない',
+          '他の人がAIをどう使っているのか、具体的な事例から学びたい',
+        ].map((item) => (
+          <li class="flex items-start gap-3 bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
+            <span class="shrink-0 w-5 h-5 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">✓</span>
+            <span class="text-sm text-gray-700 leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- 区切り線 -->
+    <div class="max-w-lg mx-auto px-5">
+      <div class="border-t border-gray-100"></div>
+    </div>
+
+    <!-- ===== 3. 循環セクション ===== -->
+    <section class="px-5 py-12 max-w-lg mx-auto">
+      <p class="text-xs font-mono text-gray-400 mb-2">THE CYCLE</p>
+      <h2 class="text-xl font-black text-gray-900 mb-2 leading-tight">
+        あなたの試行錯誤が、<br>応援される理由になる。
+      </h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-8">
+        AIを使ってみたい。でも、何に使えばいいか分からない。ひとりでは続かないし、ツール代も負担になる。<br><br>
+        nexs は、そんな一人ひとりの「試してみたい」という気持ちを、社会に開かれた研究や知見へと変えていくNPOです。<br><br>
+        あなたが試したこと。つまずいたこと。見つけた使い方。その一つひとつが記録・共有され、誰かの役に立つ形に変わる。
+        自分のために始めた挑戦が、社会にとって意味のある知見となり、応援される理由へと変わる。そんな循環をつくる場所が nexs です。
+      </p>
+
+      <!-- 循環図 -->
+      <div class="bg-gray-50 border border-gray-100 rounded-2xl p-5 space-y-0">
+        {[
+          { num: '1', label: '試したい気持ち', desc: 'AIを使ってみたい、何か始めたいという個人のエネルギー。' },
+          { num: '2', label: '試行錯誤', desc: 'AIを使い、つまずきながら、小さく試してみる。' },
+          { num: '3', label: '記録・共有', desc: 'うまくいったことも、失敗したことも、誰かが学べる形に残す。' },
+          { num: '4', label: '社会に開かれた知見', desc: '個人の経験を、社会に役立つ情報へ変えていく。' },
+          { num: '5', label: '応援される理由', desc: '社会に意味のある知見だからこそ、支援やリソースが集まりやすくなる。' },
+          { num: '6', label: 'さらに試せる環境', desc: '集まった支援を、次の挑戦や研究環境づくりへ循環させる。' },
+        ].map((item, i, arr) => (
+          <div>
+            <div class="flex items-start gap-3 py-3">
+              <span class="shrink-0 w-7 h-7 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold font-mono">
+                {item.num}
+              </span>
+              <div>
+                <p class="text-sm font-bold text-gray-900">{item.label}</p>
+                <p class="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+            {i < arr.length - 1 && (
+              <div class="flex justify-center text-gray-300 text-lg leading-none">↓</div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 区切り線 -->
+    <div class="max-w-lg mx-auto px-5">
+      <div class="border-t border-gray-100"></div>
+    </div>
+
+    <!-- ===== 4. 支援内容セクション ===== -->
+    <section class="px-5 py-12 max-w-lg mx-auto">
+      <p class="text-xs font-mono text-gray-400 mb-2">WHAT WE OFFER</p>
+      <h2 class="text-xl font-black text-gray-900 mb-6">
+        社会の応援は nexs を通じて、<br>あなたのもとに。
+      </h2>
+
+      <div class="space-y-4">
+        {[
+          {
+            title: 'はじめの一歩を支援',
+            body: 'まだぼんやりした関心でも、最初に試せる形へ落とし込めるように、テーマ設計や進め方、環境づくりのノウハウを共有します。',
+          },
+          {
+            title: '試しやすい環境を支援',
+            body: 'AIツールやAPI、共同作業のための環境など、個人だけでは負担になりやすいものを、記録・共有・公開を前提とした試行錯誤を支えるための仕組みとして準備しています。',
+          },
+          {
+            title: 'つながりの機会を支援',
+            body: '同じようにAIを使って試行錯誤するメンバーや、外部の団体・企業・専門家との接点をつくっていきます。将来的な仕事やキャリアの機会につながるような関係づくりも支援します。',
+          },
+          {
+            title: '公開と発信を支援',
+            body: 'nexsでの活動や成果を記録・共有・発信できる形にしていきます。試したこと、分かったことが、あなた自身の実績・ポートフォリオにもなります。',
+          },
+        ].map((item) => (
+          <div class="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+            <h3 class="text-sm font-bold text-gray-900 mb-2">{item.title}</h3>
+            <p class="text-xs text-gray-600 leading-relaxed">{item.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-xs text-gray-400 mt-4 leading-relaxed">
+        ※各種支援内容は、NPO法人化および環境構築が済み次第正式にご案内します。
+      </p>
+    </section>
+
+    <!-- 区切り線 -->
+    <div class="max-w-lg mx-auto px-5">
+      <div class="border-t border-gray-100"></div>
+    </div>
+
+    <!-- ===== 5. 事前登録CTAセクション ===== -->
+    <section class="px-5 py-12 pb-20 max-w-lg mx-auto text-center">
+      <p class="text-xs font-mono text-gray-400 mb-2">PRE-REGISTRATION</p>
+      <h2 class="text-xl font-black text-gray-900 mb-4">事前登録受付中</h2>
+      <p class="text-sm text-gray-600 leading-relaxed mb-2">
+        nexs は現在、NPO法人化とリサーチャー制度の準備を進めています。<br>
+        正式な募集が始まったら、事前登録いただいた方に優先してご案内します。
+      </p>
+      <p class="text-xs text-gray-400 mb-7">
+        登録は無料です。※正式な入会申込ではありません。
+      </p>
+
+      <button
+        type="button"
+        class="open-modal w-full max-w-xs mx-auto bg-black text-white py-4 rounded-2xl font-bold text-base hover:bg-gray-800 active:scale-[0.97] transition-all shadow-lg block"
+      >
+        事前登録をする →
+      </button>
+      <p class="text-xs text-gray-400 mt-3">登録に必須なのはメールアドレスだけです。</p>
+    </section>
+
+    <!-- フッター -->
+    <footer class="border-t border-gray-100 px-5 py-6 text-center">
+      <p class="text-xs font-mono text-gray-400">nexs — 次世代社会デザイン研究機構</p>
+      <p class="text-xs text-gray-400 mt-1">NPO法人化準備中</p>
+    </footer>
+
+  </main>
+
+  <!-- モーダル制御スクリプト -->
+  <script>
+    document.querySelectorAll('.open-modal').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('open-researcher-modal'));
+      });
+    });
+  </script>
+</BaseLayout>
